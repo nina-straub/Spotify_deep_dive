@@ -5,7 +5,7 @@ from tensorflow import keras
 from keras.models import Sequential
 import pandas as pd
 from keras.layers import Dense
-binary_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/trainingsdata.csv', delimiter=',')
+binary_data = pd.read_csv('../Spotify_deep_dive/trainingsdata.csv', delimiter=',')
 
 # transform into binary labels
 binary_data['mood'] = binary_data['mood'].map({'happy': 1, 'sad': 0, 'energetic': 0, 'calm': 0})
