@@ -1,0 +1,126 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+def get_percentage(data, mood):
+    mood_len = len(data[data['mood'] == mood])
+    data_len = len(data)
+    percentage_r = (mood_len/data_len) * 100
+    percentage = round(percentage_r, 2)
+    return percentage
+
+# function to add value labels
+def addlabels(x,y):
+    for i in range(len(x)):
+        plt.text(i,y[i],y[i], ha = 'center')
+
+# Get data
+caro_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/03-Output/labeled_history_CS.csv')
+felix_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/03-Output/labeled_history_FK.csv')
+daniel_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/03-Output/labeled_history_DA.csv')
+magnus_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/03-Output/labeled_history_ME.csv')
+alex_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/03-Output/labeled_history_AJ.csv')
+nina_data = pd.read_csv('../WiSe21-Project-Spotify_Deep_Dive/03-Output/labeled_history_NiS.csv')
+
+f_h = get_percentage(felix_data, 'happy')
+f_s = get_percentage(felix_data, 'sad')
+f_c = get_percentage(felix_data, 'calm')
+f_e = get_percentage(felix_data, 'energetic')
+
+c_h = get_percentage(caro_data, 'happy')
+c_s = get_percentage(caro_data, 'sad')
+c_c = get_percentage(caro_data, 'calm')
+c_e = get_percentage(caro_data, 'energetic')
+
+d_h = get_percentage(daniel_data, 'happy')
+d_s = get_percentage(daniel_data, 'sad')
+d_c = get_percentage(daniel_data, 'calm')
+d_e = get_percentage(daniel_data, 'energetic')
+
+m_h = get_percentage(magnus_data, 'happy')
+m_s = get_percentage(magnus_data, 'sad')
+m_c = get_percentage(magnus_data, 'calm')
+m_e = get_percentage(magnus_data, 'energetic')
+
+a_h = get_percentage(alex_data, 'happy')
+a_s = get_percentage(alex_data, 'sad')
+a_c = get_percentage(alex_data, 'calm')
+a_e = get_percentage(alex_data, 'energetic')
+
+n_h = get_percentage(nina_data, 'happy')
+n_s = get_percentage(nina_data, 'sad')
+n_c = get_percentage(nina_data, 'calm')
+n_e = get_percentage(nina_data, 'energetic')
+
+
+''''Create Happy Plot'''
+
+# Define Data
+x = ['Caro', 'Alex', 'Daniel', 'Felix', 'Magnus', 'Nina']
+y = [c_h, a_h, d_h, f_h, m_h, n_h]
+
+color = ['violet', 'orange', 'firebrick', 'royalblue', 'lightblue', 'palegreen']
+plt.bar(x, y, color = color)
+
+# Add labels and text
+
+addlabels(x, y)
+plt.ylabel('Percentage')
+plt.title('Happy Songs')
+
+plt.show()
+
+
+''''Create Sad Plot'''
+
+# Define Data
+x = ['Caro', 'Alex', 'Daniel', 'Felix', 'Magnus', 'Nina']
+y = [c_s, a_s, d_s, f_s, m_s, n_s]
+
+color = ['violet', 'orange', 'firebrick', 'royalblue', 'lightblue', 'palegreen']
+plt.bar(x, y, color = color)
+
+# Add labels and text
+
+addlabels(x, y)
+plt.ylabel('Percentage')
+plt.title('Sad Songs')
+
+plt.show()
+
+
+''''Create Calm Plot'''
+
+# Define Data
+x = ['Caro', 'Alex', 'Daniel', 'Felix', 'Magnus', 'Nina']
+y = [c_c, a_c, d_c, f_c, m_c, n_c]
+
+color = ['violet', 'orange', 'firebrick', 'royalblue', 'lightblue', 'palegreen']
+plt.bar(x, y, color = color)
+
+
+# Add labels and text
+
+addlabels(x, y)
+plt.ylabel('Percentage')
+plt.title('Calm Songs')
+
+plt.show()
+
+
+''''Create Energetic Plot'''
+
+# Define Data
+x = ['Caro', 'Alex', 'Daniel', 'Felix', 'Magnus', 'Nina']
+y = [c_e, a_e, d_e, f_e, m_e, n_e]
+
+color = ['violet', 'orange', 'firebrick', 'royalblue', 'lightblue', 'palegreen']
+plt.bar(x, y, color = color)
+
+# Add labels and text
+
+addlabels(x, y)
+plt.ylabel('Percentage')
+plt.title('Energetic Songs')
+
+plt.show()
